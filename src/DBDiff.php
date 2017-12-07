@@ -42,7 +42,8 @@ class DBDiff {
             }
 
             Logger::success("Completed");
-
+            
+            return ['up'=>$up, 'down'=>$down];
         } catch (\Exception $e) {
             if ($e instanceof BaseException) {
                 Logger::error($e->getMessage(), true);
