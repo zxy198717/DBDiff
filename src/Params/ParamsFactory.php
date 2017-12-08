@@ -5,7 +5,17 @@ use DBDiff\Exceptions\CLIException;
 
 class ParamsFactory {
     
+    static $params;
+    
+    public static function set($params) {
+        self::$params = $params;
+    }
+    
     public static function get() {
+        
+        if(self::$params) {
+            return self::$params;
+        }
         
         $params = new DefaultParams;
 
